@@ -6,12 +6,13 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:57:39 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/05/07 18:29:00 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:46:36 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 
@@ -22,7 +23,7 @@ void	err(t_faylassof *philo, int flag)
 	if (flag == 0)
 		write(2, "what ever!\n", 11);
 	if (flag == 1)
-		write(2, "Malloc Failed!\n", 16);
+		write(2, "memory problem please clean your device\n", 16);
 	if (flag == 2)
 		write(2, "Creating threads Failed!\n", 26);
 	if (flag == 3)
@@ -37,7 +38,9 @@ void	err(t_faylassof *philo, int flag)
 
 int main (int ac, char **av)
 {
-   int   *t_faylassof ;
+   t_table *table ;
+
+   table = malloc(sizeof(t_table));
    int i = 1;
    if (ac == 5 || ac == 6 )
    {
@@ -45,16 +48,20 @@ int main (int ac, char **av)
       {
 
         if (ft_isnumber(av[i]) == 1)
-            checker_parcing(2);
-
-        if (ins_range(ft_atoi(av[i])) == 0)
-
-          checker_parcing(3);
+            checker_parcing(3);
          i++;
       }
-      render_pls();
+      // render_pls();
+      inicializada(table,ac,av);
+
+      printf("%d\t",table->nbr_of_pls);
+      printf("%d\t",table->ttd);
+      printf("%d\t",table->tte);
+      printf("%d\t",table->tts);
+      printf("%d\t",table->tpe);
+      printf("[%d]\t",table->nbr_of_re);
       exit(0);
    }
    else
-      printf("notValid");
+      printf("number of arg are notValid");
 }

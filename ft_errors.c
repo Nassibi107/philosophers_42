@@ -6,37 +6,34 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:07:46 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/05/06 15:08:55 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:16:00 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-void	error_parsing(int mode)
-{
-	write(2, "Error\n", 6);
-	if (mode == 0)
-		write(2, "Invalid Argument!\n", 19);
-	if (mode == 1)
-		write(2, "You depassed integers try 0 < n < INT_MAX!\n", 44);
-	if (mode == 2)
-		write(2, "Emm something smells fishy! Try AGAIN\n", 39);
-	if (mode == 3)
-		write(2, "Numbers not valid\n", 19);
-	exit(EXIT_FAILURE);
-}
-
 
 void	checker_parcing(int flag)
 {
-	write(2, "Error\n", 6);
+	write(2, "!----{_ERROR_}-----!\n", 21);
 	if (flag == 0)
-		write(2, "Invalid Argument!\n", 19);
-	else if (flag == 1)
-		write(2, "You depassed integers try 0 < n < INT_MAX!\n", 44);
-	else if (flag == 2)
-		write(2, "Emm something smells fishy! Try AGAIN\n", 39);
-	else if (flag == 3)
-		write(2, "Numbers not valid\n", 19);
+		write(2, "what ever!\n", 11);
+	if (flag == 1)
+		write(2, "memory problem please clean your device\n", 16);
+	if (flag == 2)
+		write(2, "Creating threads Failed!\n", 26);
+
+	if (flag == 3)
+	{
+		write(2, "check if {{number}} \n! ", 22);
+		write(2,"it must be in [0, 2222222]\n",28);
+		write(2,"aren't digits\n",12);
+	}
+	if (flag == 6)
+		write(2, "Joing threads Failed!\n", 23);
+	if (flag == 4)
+		write(2, "Program Failed!\n", 17);
+	if (flag == 5)
+		write(2, "Creating Mutex Failed!\n", 24);
 	exit(1);
 }
