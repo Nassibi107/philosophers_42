@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:21:47 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 16:24:39 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/02 18:21:32 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,7 @@ long long ft_time()
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
-void	*daily_philo_routine(void *thing)
-{
-	t_table	*tb;
-	t_pl		*ph;
 
-	ph = (t_pl *)thing;
-	tb = ph->auskunft;
-	if (ph->id % 2)
-		usleep(20000);
-	while (!is_dead(tb))
-	{
-		if (check(tb))
-			break ;
-		philo_eats(ph);
-		writer("is sleeping", ph);
-		go_tnt(tb->tts);
-		writer("is thinking", ph);
-	}
-}
 void	philo_has_running(t_table *tb)
 {
 	t_pl	*ph;

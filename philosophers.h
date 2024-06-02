@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:30:43 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 16:22:55 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/02 18:37:01 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,22 @@ typedef struct s_table
 	long long			start_t;
 }	t_table;
 
-
+int	check(t_table *tb);
+int	aul(t_table *tb);
 int	inicializada(t_table *table,int ac ,char *av[]);
 int	ft_atoi(const char *str);
 int	ins_range(long n);
-int ft_isnumber(char *av);
+int	ft_isnumber(char *av);
 void	checker_parcing(int flag);
 int	get_mtx(t_table *prg);
 void	error_parsing(int flag);
 int	render_philos(t_table *prg);
 long long ft_time();
 void	writer(char *str, t_pl *prg);
+void	*daily_philo_routine(void *thing);
 void	go_tnt(long long time);
 void	philo_eats(t_pl *ph);
+void	philo_has_running(t_table *tb);
 #endif
 
 

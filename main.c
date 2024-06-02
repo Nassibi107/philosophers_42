@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:57:39 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 15:08:47 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/02 18:37:22 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,10 @@ int main (int ac, char **av)
 	      i++;
 	   }
 	   inicializada(table,ac,av);
+		render_philos(table);
 		if (!get_mtx(table))
 			err(1);
-		render_philos(table);
-	i = 0;
-	while (i < table->nbr_of_pls)
-	{
-		printf("tb{id:%d}==> \t",table->philo[i].id) ;
-		printf("tb{f_right:%d}\t",table->philo[i].f_right) ;
-		printf("tb{f_left:%d}\t",table->philo[i].f_left) ;
-		printf("tb{ts_eating:%d}\t",table->philo[i].ts_eating) ;
-		printf("tb{ts_ttep:%d}\t",(int) table->philo[i].ttep) ;
-		printf("\n\n");
-		i++;
-	}
-		exit(0);
+		philo_has_running(table);
 	}
 	else
 		printf("number of arg are notValid");

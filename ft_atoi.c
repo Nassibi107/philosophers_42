@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:44:37 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/05/13 11:42:32 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/02 18:10:57 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,42 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (rst * s);
+}
+void  ft_fill_arr(int *arr,int ac , char **av)
+{
+   int i;
+   int j;
+
+   i = 0;
+   j = 1;
+   while ( i < ac - 1)
+      arr[i++] = ft_atoi(av[j++]);
+
+}
+
+
+int   inicializada(t_table *table,int ac ,char *av[])
+{
+	int i;
+	int *arr = malloc(sizeof(int) * (ac - 1));
+	if (!arr)
+		return(0);
+	ft_fill_arr(arr,ac,av);
+	i = 0;
+	table->nbr_of_pls = arr[i++];
+	table->ttd = arr[i++];
+	table->tte = arr[i++];
+	table->tts = arr[i++];
+	table->table_destroy = 0;
+	if (ac == 6)
+   {
+		table->tpe = arr[i++];
+		table->nbr_of_re = (i - 5);
+	}
+	else
+   {
+		table->tpe = -1;
+		table->tpe = arr[++i];
+	}
+	return (1);
 }

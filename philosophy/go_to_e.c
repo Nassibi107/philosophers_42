@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:00:23 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 16:16:29 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/02 18:22:14 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,24 @@ void	philo_eats(t_pl *ph)
 	go_tnt(tb->tte);
 	pthread_mutex_unlock(&(tb->mtx.forchette[ph->f_left]));
 	pthread_mutex_unlock(&(tb->mtx.forchette[ph->f_right]));
+}
+void	*daily_philo_routine(void *thing)
+{
+	t_table	*tb;
+	t_pl		*ph;
+
+	ph = (t_pl *)thing;
+	tb = ph->auskunft;
+	if (ph->id % 2)
+		usleep(20000);
+	while (!aul(tb))
+	{
+		if (check(tb))
+			break ;
+		philo_eats(ph);
+		writer("is sleeping", ph);
+		go_tnt(tb->tts);
+		writer("is thinking", ph);
+	}
+	return (NULL);
 }
