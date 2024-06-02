@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:48:18 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/05/15 14:54:40 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/02 12:37:43 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int   inicializada(t_table *table,int ac ,char *av[])
 	int i;
 	int *arr = malloc(sizeof(int) * (ac - 1));
 	if (!arr)
-   	return(0);
+		return(0);
 	ft_fill_arr(arr,ac,av);
 	i = 0;
 	table->nbr_of_pls = arr[i++];
@@ -50,7 +50,5 @@ int   inicializada(t_table *table,int ac ,char *av[])
 		table->tpe = -1;
 		table->tpe = arr[++i];
 	}
-	printf("%d",i);
-
 	return (1);
 }
