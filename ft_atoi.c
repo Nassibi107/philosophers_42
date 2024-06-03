@@ -6,12 +6,11 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:44:37 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 18:10:57 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:57:04 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
-
 
 int	ft_atoi(const char *str)
 {
@@ -30,7 +29,6 @@ int	ft_atoi(const char *str)
 			s *= -1;
 		i++;
 	}
-
 	while ((str[i] >= '0' && str[i] <= '9') && str[i])
 	{
 		rst *= 10;
@@ -39,26 +37,27 @@ int	ft_atoi(const char *str)
 	}
 	return (rst * s);
 }
-void  ft_fill_arr(int *arr,int ac , char **av)
+
+void	ft_fill_arr(int *arr, int ac, char **av)
 {
-   int i;
-   int j;
+	int	i;
+	int	j;
 
-   i = 0;
-   j = 1;
-   while ( i < ac - 1)
-      arr[i++] = ft_atoi(av[j++]);
-
+	i = 0;
+	j = 1;
+	while (i < ac - 1)
+		arr[i++] = ft_atoi(av[j++]);
 }
 
-
-int   inicializada(t_table *table,int ac ,char *av[])
+int	inicializada(t_table *table, int ac, char *av[])
 {
-	int i;
-	int *arr = malloc(sizeof(int) * (ac - 1));
+	int	i;
+	int	*arr;
+
+	arr = malloc(sizeof(int) * (ac - 1));
 	if (!arr)
-		return(0);
-	ft_fill_arr(arr,ac,av);
+		return (0);
+	ft_fill_arr(arr, ac, av);
 	i = 0;
 	table->nbr_of_pls = arr[i++];
 	table->ttd = arr[i++];
@@ -66,12 +65,12 @@ int   inicializada(t_table *table,int ac ,char *av[])
 	table->tts = arr[i++];
 	table->table_destroy = 0;
 	if (ac == 6)
-   {
+	{
 		table->tpe = arr[i++];
 		table->nbr_of_re = (i - 5);
 	}
 	else
-   {
+	{
 		table->tpe = -1;
 		table->tpe = arr[++i];
 	}

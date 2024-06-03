@@ -6,21 +6,19 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 15:21:47 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 18:21:32 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:10:34 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-
-long long ft_time()
+long long	ft_time(void)
 {
 	struct timeval	time;
 
 	gettimeofday(&time, 0);
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
-
 
 void	philo_has_running(t_table *tb)
 {

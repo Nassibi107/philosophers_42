@@ -6,15 +6,11 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:57:39 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 18:37:22 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:08:12 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
 
 void	err(int flag)
 {
@@ -31,21 +27,23 @@ void	err(int flag)
 	exit(EXIT_FAILURE);
 }
 
-
-int main (int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_table *table ;
+	int		i;
+	t_table	*table ;
+
 	table = malloc(sizeof(t_table));
-	int i = 1;
-	if (ac == 5 || ac == 6 )
+	if (!table)
+		err(2);
+	if (ac == 5 || ac == 6)
 	{
-	   while (i < ac )
-	   {
-	     if (ft_isnumber(av[i]) == 1)
-	         checker_parcing(3);
-	      i++;
-	   }
-	   inicializada(table,ac,av);
+		while (i < ac)
+		{
+			if (ft_isnumber(av[i]) == 1)
+				checker_parcing(3);
+			i++;
+		}
+		inicializada(table, ac, av);
 		render_philos(table);
 		if (!get_mtx(table))
 			err(1);

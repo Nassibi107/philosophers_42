@@ -6,12 +6,11 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 16:00:23 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 18:22:14 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/03 15:09:18 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
-
 
 void	philo_eats(t_pl *ph)
 {
@@ -19,7 +18,7 @@ void	philo_eats(t_pl *ph)
 
 	tb = ph->auskunft;
 	pthread_mutex_lock(&(tb->mtx.forchette[ph->f_left]));
-	writer("has taken a fork",ph);
+	writer("has taken a fork", ph);
 	pthread_mutex_lock(&(tb->mtx.forchette[ph->f_right]));
 	writer("has taken a fork", ph);
 	pthread_mutex_lock(&(tb->mtx.eat_habbit));
@@ -33,9 +32,10 @@ void	philo_eats(t_pl *ph)
 	pthread_mutex_unlock(&(tb->mtx.forchette[ph->f_left]));
 	pthread_mutex_unlock(&(tb->mtx.forchette[ph->f_right]));
 }
+
 void	*daily_philo_routine(void *thing)
 {
-	t_table	*tb;
+	t_table		*tb;
 	t_pl		*ph;
 
 	ph = (t_pl *)thing;

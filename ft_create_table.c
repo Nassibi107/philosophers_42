@@ -6,17 +6,15 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:11:50 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/02 18:35:08 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:59:55 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
-#include <stdio.h>
 
-
-void go_out()
+void	go_out(void)
 {
-	write(1,"mutex has crashed!!",  20);
+	write(1, "mutex has crashed!!", 20);
 	exit(1);
 }
 
@@ -40,7 +38,8 @@ int	render_philos(t_table *prg)
 	}
 	return (1);
 }
-int checker_mtx(t_table *prg)
+
+int	checker_mtx(t_table *prg)
 {
 	if (pthread_mutex_init(&(prg->mtx.writing), NULL))
 		go_out();
@@ -54,12 +53,13 @@ int checker_mtx(t_table *prg)
 		go_out();
 	return (1);
 }
+
 int	get_mtx(t_table *prg)
 {
 	int	i;
 
 	i = -1;
-	prg->mtx.forchette = malloc(sizeof(pthread_mutex_t)  * prg->nbr_of_pls);
+	prg->mtx.forchette = malloc(sizeof(pthread_mutex_t) * prg->nbr_of_pls);
 	if (!(prg->philo))
 		return (0);
 	while (++i < prg->nbr_of_pls)

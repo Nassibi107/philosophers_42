@@ -6,18 +6,15 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 10:59:40 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/05/07 16:18:06 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:57:29 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-
-
-int	ins_range (long n)
+int	ins_range(long n)
 {
 	if (n <= 0 || n >= 2147483647)
 		return (0);
 	return (1);
 }
-
